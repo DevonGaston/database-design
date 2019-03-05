@@ -24,18 +24,15 @@ VALUES(4, 'Brown', 'Colin', 'D', 11, '3253456789', 'Assistant', 4, 9871);
   ####Error Code: 1062. Duplicate entry '4' for key 'PRIMARY'
   ####Constraint Violation: Primary Key of given value already exists
   ###ii.
-  ####INSERT INTO Faculty
-VALUES(6, 'Reeves', 'Bob', 'S', 15, '3256789012', 'Full',  null, 1234);
+  ####INSERT INTO Faculty VALUES(6, 'Reeves', 'Bob', 'S', 15, '3256789012', 'Full',  null, 1234);
   ####Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`lipscomb_final_project`.`faculty`, CONSTRAINT `faculty_ibfk_1` FOREIGN KEY (`Loc_ID`) REFERENCES `location` (`Loc_ID`))
   ####Constraint Violation: Foreign Key referenced does not exist
   ###iii.
-  ####INSERT INTO Faculty
-VALUES(6, 'Reeves', 'Bob', 'S', 10, '3256789012', 'Assistant', 7, 1234);
+  ####INSERT INTO Faculty VALUES(6, 'Reeves', 'Bob', 'S', 10, '3256789012', 'Assistant', 7, 1234);
   ####Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`lipscomb_final_project`.`faculty`, CONSTRAINT `faculty_ibfk_2` FOREIGN KEY (`F_Super`) REFERENCES `faculty` (`F_ID`) ON DELETE SET NULL ON UPDATE CASCADE)
   ####Constraint Violation: Foreign Key Referenced does not exist
   ###iv.
-  ####INSERT INTO Faculty
-VALUES(6, 'Reeves', 'Bob', 'S', 10, '3255678901', 'Assistant', 2, 1234);
+  ####INSERT INTO Faculty VALUES(6, 'Reeves', 'Bob', 'S', 10, '3255678901', 'Assistant', 2, 1234);
   ####Error Code: ?
   ####Constraint Violation: ?
   ##c
