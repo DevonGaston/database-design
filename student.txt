@@ -1,6 +1,0 @@
-1, Jones, Tammy, R, 1817 Eagleridge Circle, Houston, TX, 77027, 3250987654, SR, 07/14/86, 8891, 1, 06/03/03
-2, Perez, Jorge, C, 951 Rainbow Drive, Abilene, TX, 79901, 3258765432, SR, 08/19/86, 1230, 1, 01/10/02
-3, Marsh, John, A, 1275 W Main St, Dallas, TX, 78012, 3257654321, JR, 10/10/83, 1613, 1, 08/24/03
-4, Smith, Mike, , 428 EN 16 Street, Abilene, TX, 79902, 3256543210, SO, 9/24/87, 1841, 2, 08/23/04
-5, Johnson, Lisa, M, 764 College Drive, Abilene, TX, 79901, 3255432109, SO, 11/20/87, 4420, 4, 01/08/05
-6, Nguyen, Ni, M, 688 4th Street, Ft Worth, TX, 78767, 3254321098, FR, 12/4/88, 9188, 3, 08/22/06
