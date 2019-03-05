@@ -1,3 +1,4 @@
+#Part 1: Define the Database
 CREATE TABLE LOCATION(
 	Loc_ID INT NOT NULL AUTO_INCREMENT, 
 	Bldg_Code VARCHAR(4) NOT NULL, 
@@ -60,7 +61,6 @@ CREATE TABLE COURSE(
 	CHECK (Credits > 0)
 );
 
-Alter table course_section modify column c_sec_day varchar(6);
 CREATE TABLE COURSE_SECTION(
 	C_Sec_ID INT NOT NULL AUTO_INCREMENT,
 	Course_ID INT,
@@ -86,7 +86,7 @@ CREATE TABLE COURSE_SECTION(
 		ON DELETE SET NULL 
 		ON UPDATE CASCADE
 );
-ALTER TABLE enrollment modify column S_ID Int not null;
+
 CREATE TABLE ENROLLMENT(
 	S_ID INT NOT NULL, 
 	C_Sec_ID INT NOT NULL, 
@@ -97,6 +97,7 @@ CREATE TABLE ENROLLMENT(
 		ON UPDATE CASCADE
 );
 
+#Part 2: Populate the Database
 LOAD DATA INFILE 'C:\location.txt' INTO TABLE LOCATION 
 	FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n' SET Loc_ID = Null;
 LOAD DATA INFILE 'C:\term.txt' INTO TABLE TERM 
@@ -112,3 +113,32 @@ LOAD DATA INFILE 'C:\course_section.txt' INTO TABLE COURSE_SECTION
 LOAD DATA INFILE 'C:\enrollment.txt' INTO TABLE ENROLLMENT 
 	FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n';
 
+#Part 3: Test the referential integrity constraints of the Database
+##3.a
+INSERT INTO COURSE_SECTION
+VALUES(12, 2, 6, 2, 2, 'MTWRF', '10:00 AM', '11:30 AM', 5, 35);
+INSERT INTO COURSE_SECTION
+VALUES(12, 2, 6, 2, 2, 'MTWRF', '9:00 AM', '10:30 AM', 6, 35);
+INSERT INTO COURSE_SECTION
+VALUES(2, 1, 4, 2, 3, 'TR', '9:30 AM', '10:45 AM', 4, 35);
+##3.b
+INSERT INTO Faculty
+VALUES(4, 'Brown', 'Colin', 'D', 11, '3253456789', 'Assistant', 4, 9871);
+INSERT INTO Faculty
+VALUES(6, 'Reeves', 'Bob', 'S', 15, '3256789012', 'Full',  null, 1234);
+INSERT INTO Faculty
+VALUES(6, 'Reeves', 'Bob', 'S', 10, '3256789012', 'Assistant', 7, 1234);
+
+##Accepted by Database: Database needs tweaking
+INSERT INTO Faculty
+VALUES(6, 'Reeves', 'Bob', 'S', 10, '3255678901', 'Assistant', 2, 1234);
+
+##3.c
+INSERT INTO COURSE
+VALUES(4, 'CS 120', 'Intro. to Programming in C++', 3);
+##3.d
+DELETE FROM LOCATION WHERE Loc_ID = 11;
+
+##3.e
+##Accepted By Database: Needs Tweaking
+DELETE FROM TERM WHERE Term_ID = 4;
