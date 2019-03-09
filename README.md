@@ -1,5 +1,7 @@
-# Part 1: Insert info about Primary Keys, constraints, etc. here
-# Part 2: Insert info about method of populating database here.
+# Part 1: 
+Insert info about Primary Keys, constraints, etc. here
+# Part 2: 
+Insert info about method of populating database here.
 # Part 3: Referential constraints:
 ## a.i
 - INSERT INTO COURSE_SECTION
@@ -44,5 +46,5 @@ VALUES(4, 'CS 120', 'Intro. to Programming in C++', 3);
 - Constraint Violation: Loc_ID serves as parent of Faculty and cannot be deleted while a Faculty row references it
 ## e
 - DELETE FROM TERM WHERE Term_ID = 4;
-- Error Code: ?
-- Constraint Violation: ?
+- Error Code: Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`lipscomb_final_project`.`course_section`, CONSTRAINT `course_section_ibfk_5` FOREIGN KEY (`Term_ID`) REFERENCES `term` (`Term_ID`) ON UPDATE CASCADE)
+- Constraint Violation: Parent entities cannot be deleted if they are referenced by a child entity (COURSE_SECTION row references TERM row to be deleted)
