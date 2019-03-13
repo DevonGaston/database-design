@@ -246,7 +246,8 @@ WHERE A.F_RANK LIKE "%ASSISTANT%" AND A.F_SUPER = B.F_ID;
 
 ##a
 CREATE VIEW faculty_view AS SELECT F_ID, F_Last, F_First, F_Mi, Loc_ID, F_Phone,
-	F_Rank, F_Super FROM FACULTY;
+	F_Rank, F_Super FROM FACULTY
+    WITH CHECK OPTION;
 
 ##b 
 INSERT INTO FACULTY_VIEW
